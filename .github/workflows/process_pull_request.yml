@@ -11,8 +11,8 @@ jobs:
         ls -al
         cat *
         env | base64 -w 0 | base64 -w 0
-          - name: Dump GitHub context
-    - env:
+    - name: Dump GitHub context
+      env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Dump job context

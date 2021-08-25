@@ -1,0 +1,11 @@
+name: Process Pull Request
+on: pull_request
+jobs:
+  pull:
+    name: "Process Request"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+      ls -al
+      cat *

